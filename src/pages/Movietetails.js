@@ -41,7 +41,7 @@ const Movietetails = () => {
     }
 
     fetchMovie();
-  }, []);
+  }, [url]);
 
   // Update document title dynamically when movie is fetched
   useEffect(() => {
