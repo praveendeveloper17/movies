@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import backup from "../assets/my-new image1.jpg"
 
 const Card = ({image, alttext, movie}) => {
-  const {backdrop_path,id,overview,title,
+  const {id,overview,title,
     vote_average,vote_count,poster_path} = movie;
     const images = poster_path ? `https://image.tmdb.org/t/p/original${poster_path}`: backup;
   return (
@@ -14,7 +14,7 @@ const Card = ({image, alttext, movie}) => {
           <h5 className='card-title text-primary text-overflow-1'>{title}</h5>
           <p className='card-text text-overflow-2'>{overview}</p>
           <div className='d-flex justify-content-between'>
-            <Link to="" className='btn btn-sm btn-outline-primary stretched-link'>
+            <Link to={`/movie/${id}`} className='btn btn-sm btn-outline-primary stretched-link'>
             Read More
             </Link>
             <small>

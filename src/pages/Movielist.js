@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomCard from '../components/Card'; // Import your custom card component
-// import backup from '../assets/farmal image.jpg';
-// import backup1 from '../assets/my-new image1.jpg';
-// import backup2 from '../assets/new-image2.jpg';
 import Usefetch from '../hooks/Usefetch';
 
 const Movielist = ({ title, apipath }) => {

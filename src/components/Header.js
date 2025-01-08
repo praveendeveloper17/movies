@@ -1,11 +1,19 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Header = () => {
+  const navigator = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const queryTerm = e.target.search.value; 
+    e.target.reset();
+    return navigator(`/search?q=${queryTerm}`);
+
+  }
   return (
     <nav className='navbar navbar-expand-md bg-primary navbar-dark fixed-top'>
       <div className='container-fluid'>
-        <a href='#'className='navbar-brand'>
+        <a href='/'className='navbar-brand'>
         <i className="fa-solid fa-video"></i> Movies</a>
 
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#menu'>
@@ -18,8 +26,8 @@ const Header = () => {
             <li className='nav-item'><NavLink to='/movies/popular' className='nav-link'>Popular</NavLink></li>
             <li className='nav-item'><NavLink to='/movies/upcoming' className='nav-link'>Up Commimg</NavLink></li>
           </ul>
-          <form action='#'>
-            <input type='search'className='form-control form-control-sm' placeholder='search'/>
+          <form onSubmit={handleSearch}>
+            <input type='search'className='form-control form-control-sm' placeholder='search' name='search'/>
           </form>
         </div>
       </div>
